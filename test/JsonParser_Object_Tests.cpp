@@ -35,6 +35,12 @@ class JsonParser_Object_Test : public testing::Test {
   char _jsonString[256];
 };
 
+TEST_F(JsonParser_Object_Test, EmptyString) {
+  whenInputIs("");
+  parseMustFail();
+  sizeMustBe(0);
+}
+
 TEST_F(JsonParser_Object_Test, EmptyObject) {
   whenInputIs("{}");
   parseMustSucceed();
